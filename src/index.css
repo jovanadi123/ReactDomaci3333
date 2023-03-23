@@ -59,7 +59,7 @@ button.remove{
   width: 1.5rem;
 }
 button.badge{
-  background-color: red;
+  background-color: rgb(108, 69, 214);
   border: none;
   color: #ffffff;
   width: 1.5rem;
