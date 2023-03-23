@@ -1,22 +1,24 @@
 import React from 'react';
+import {CgShoppingCart} from 'react-icons/cg';
+import { Link } from 'react-router-dom';
 
 export default function Header(props){
     const {countCartItems} = props;
     return (
         <header className="row block center">
             <div>
-                <a href="#/">
+                <Link to="/">
                     <h1>Sport Vision</h1>
-                </a>
+                </Link>
             </div>
             <div>
-                <a href="#/cart">Cart{' '}{countCartItems ? (
+                <Link to="/basket"><CgShoppingCart />{' '}{countCartItems ? (
                     <button className="badge">{countCartItems}</button>
                 ) : 
                 <button className="badge">0</button>
                 }
-                </a>{' '} 
-                <a href="#/signin">SingIn</a>
+                </Link>{' '} 
+                <Link to="/onama">O nama</Link>
             </div>
         </header>
 

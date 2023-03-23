@@ -1,7 +1,9 @@
 import React from 'react';
+import {RxPlus} from 'react-icons/rx';
+import {RxMinus} from 'react-icons/rx';
 
 export default function Basket(props){
-    const{cartItems, onAdd, onRemove} = props;
+    const {cartItems, onAdd, onRemove} = props;
     const itemsPrice = cartItems.reduce((a,c) => a + c.price * c.qty, 0);
     const taxPrice = itemsPrice * 0.14;
     const shippingPrice = itemsPrice > 5000 ? 0 : 350;
@@ -16,8 +18,8 @@ export default function Basket(props){
                 <div key={item.id} className="row">
                     <div className="col-2">{item.name}</div>
                     <div className="col-2">
-                    <button onClick={()=>onAdd(item)} className="add">+</button>
-                    <button onClick={()=>onRemove(item)} className="remove">-</button>
+                    <button onClick={()=>onAdd(item)} className="add"><RxPlus /></button>
+                    <button onClick={()=>onRemove(item)} className="remove"><RxMinus /></button>
                     </div>
                     <div className="col-2 text-right">
                         {item.qty} x {item.price.toFixed(2)}rsd

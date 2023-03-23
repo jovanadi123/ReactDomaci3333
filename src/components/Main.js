@@ -1,4 +1,5 @@
 import React from 'react';
+import Clock from './Clock';
 import Product from './Product';
 
 export default function Main(props){
@@ -12,6 +13,10 @@ export default function Main(props){
             ))}
 
         </div>
+        <hr></hr>
+        <div className="block row text-right">
+                <Clock />
+            </div>
     </main>
     );
 }

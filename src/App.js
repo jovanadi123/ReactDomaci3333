@@ -3,6 +3,9 @@ import Main from './components/Main';
 import Basket from './components/Basket';
 import data from './components/data';
 import { useState } from 'react';
+import Clock from './components/Clock';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Aboutus from './components/Aboutus';
 
 function App() {
   const {products} = data;
@@ -30,17 +33,29 @@ function App() {
 
 
   return (
-    <div className="App">
+
+    <BrowserRouter>
       <Header countCartItems={cartItems.length}></Header>
-      <div className="row">
-        <Main onAdd={onAdd} products={products}></Main>
-        <Basket 
-          onAdd={onAdd}
-          onRemove= {onRemove}
-          cartItems={cartItems}
-        ></Basket>
-      </div>
-    </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Main onAdd={onAdd} products={products}></Main>
+          }
+        ></Route>
+        <Route 
+          path="/basket" 
+          element={
+          <Basket onAdd={onAdd} onRemove = {onRemove} cartItems={cartItems}></Basket>}
+          ></Route>
+          <Route
+          path="/onama"
+          element={
+            <Aboutus></Aboutus>
+          }
+        ></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
